@@ -1,3 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_weather_info/Model/today_model.dart';
+import 'package:flutter_weather_info/Widgets/info_card.dart';
+import 'package:flutter_weather_info/Widgets/weather_card.dart';
+import 'package:flutter_weather_info/Widgets/weather_info_card.dart';
+
 class HomePageView extends StatelessWidget {
   const HomePageView({super.key});
 
@@ -23,7 +29,7 @@ class HomePageView extends StatelessWidget {
               color: Colors.white,
             ),
             Text(
-              "Minsk",
+              "Eldoret",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
@@ -100,127 +106,3 @@ class HomePageView extends StatelessWidget {
     );
   }
 }
-
-class WeatherInfoCard extends StatelessWidget {
-  const WeatherInfoCard({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.white.withOpacity(0.1)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const Column(
-            children: [
-              Icon(
-                Icons.wind_power_outlined,
-                color: Colors.grey,
-              ),
-              SizedBox(height: 5),
-              Text(
-                "35 km/h",
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600),
-              ),
-              Text(
-                "Wind",
-                style: TextStyle(color: Colors.grey, fontSize: 14),
-              )
-            ],
-          ),
-          Container(
-            height: 30,
-            width: 2,
-            color: Colors.grey,
-          ),
-          const Column(
-            children: [
-              Icon(
-                Icons.water_drop,
-                color: Colors.blue,
-              ),
-              SizedBox(height: 5),
-              Text(
-                "24 %",
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600),
-              ),
-              Text(
-                "Humidity",
-                style: TextStyle(color: Colors.grey, fontSize: 14),
-              )
-            ],
-          ),
-          Container(
-            height: 30,
-            width: 2,
-            color: Colors.grey,
-          ),
-          const Column(
-            children: [
-              Icon(
-                Icons.water,
-                color: Colors.grey,
-              ),
-              SizedBox(height: 5),
-              Text(
-                "83%",
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600),
-              ),
-              Text(
-                "Rain",
-                style: TextStyle(color: Colors.grey, fontSize: 14),
-              )
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class TodayWeatherCard extends StatelessWidget {
-  final TodayModel weather;
-  const TodayWeatherCard({super.key, required this.weather});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 100,
-      width: 75,
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(20)),
-      child: Column(
-        children: [
-          Text(
-            "{weather.temperature}°",
-            style: const TextStyle(
-                fontSize: 18, color: Colors.white, fontWeight: FontWeight.w600),
-          ),
-          Image.asset('assets/thunder.png', height: 40),
-          Text(
-            weather.time,
-            style: const TextStyle(
-              fontSize: 12,
-              color: Colors.white,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
